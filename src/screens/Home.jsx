@@ -1,7 +1,7 @@
 import logo from "../assets/images/logo.png";
 import homeImage from "../assets/images/home.png";
 
-export default function Home() {
+export default function Home({ toggleModal }) {
   return (
     <div>
       <img
@@ -22,7 +22,9 @@ export default function Home() {
         the name and the price of the item you want to add. You can also add an
         image after the item is added by touching the image icon.
       </p>
-      <button className="label">Add New Item</button>
+      <button onClick={toggleModal} className="label">
+        Add New Item
+      </button>
     </div>
   );
 }
