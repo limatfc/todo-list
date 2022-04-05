@@ -1,23 +1,44 @@
 import InputField from "./InputField";
 import inputFieldData from "../data/input-field.json";
+import { useState } from "react";
+import validateName from "../scripts/validate-name";
+import validatePrice from "../scripts/validate-price";
 
 export default function AddTaskForm({ toggleModal }) {
-  const validateName = (value) => value.trim().length !== 0;
-  const validatePrice = (value) => Number(value) > 1;
+  const [inputedName, setInputedName] = useState("");
+  const [inputedPrice, setInputedPrice] = useState("");
+
+  function submitHandler(event) {
+    event.preventDefault();
+
+    if (inputedName === "" || inputedPrice < 0 || inputedPrice === "")
+      return null;
+
+    formReset();
+    toggleModal();
+  }
+
+  function formReset() {
+    setInputedName("");
+    setInputedPrice("");
+  }
 
   return (
-    <div>
+    <form onSubmit={submitHandler}>
       <h2>Add a new item</h2>
       <InputField
         information={inputFieldData.name}
-        validationPremisse={validateName}
+        state={[inputedName, setInputedName]}
+        validationFunction={validateName}
       />
       <InputField
         information={inputFieldData.price}
-        validationPremisse={validatePrice}
+        state={[inputedPrice, setInputedPrice]}
+        validationFunction={validatePrice}
       />
+
       <button>Add New Item</button>
       <button onClick={toggleModal}>Close</button>
-    </div>
+    </form>
   );
 }

@@ -1,29 +1,32 @@
 import { useState } from "react";
-import inputValidate from "../scripts/input-validate";
 
-export default function InputField({ information, validationPremisse }) {
-  const { label, placeholder, error } = information;
+export default function InputField({ information, state, validationFunction }) {
+  const { label, placeholder, error, type } = information;
+  const [getter, setter] = state;
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   function onChangeHandler(event) {
-    const validatedInputedValue = inputValidate(
-      event.target.value,
-      validationPremisse,
-      error
-    );
+    setter(event.target.value);
   }
 
-  function onBlurHandler() {}
+  function onBlurHandler() {
+    const validatedInputedValue = validationFunction(getter, error);
+    setter(validatedInputedValue.trimmedValue);
+    setErrorMessage(validatedInputedValue.errorMessage);
+  }
 
   return (
     <label>
       {label}
       <input
-        type="text"
+        type={type}
+        value={getter}
         placeholder={placeholder}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}
       />
-      <small>{}</small>
+      <small>{errorMessage}</small>
     </label>
   );
 }
