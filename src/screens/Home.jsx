@@ -8,7 +8,7 @@ export default function Home({ toggleModal }) {
         src={logo}
         alt="The word IKEA written in blue inside a yellow circle, inside a blue rectangle"
       />
-      <h1>IKEA Shopping List</h1>
+      <h1>Shopping List</h1>
       <img
         src={homeImage}
         alt="A woman wearing blue blazer, t-shit and pants sit in a shopping cart"
