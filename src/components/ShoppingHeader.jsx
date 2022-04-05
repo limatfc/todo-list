@@ -1,4 +1,4 @@
-export default function Header() {
+export default function ShoppingHeader() {
   return (
     <section>
       <span>Sort by:</span>

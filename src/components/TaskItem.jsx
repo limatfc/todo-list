@@ -8,14 +8,16 @@ export default function TaskItem({ task }) {
   }
 
   return (
-    <label>
-      <input
-        type="checkbox"
-        value={task.id}
-        checked={task.isDone}
-        onChange={onChangeHandler}
-      />
-      {task.name}, {task.price}
-    </label>
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          value={task.id}
+          checked={task.isDone}
+          onChange={onChangeHandler}
+        />
+        {task.name}, {task.price}
+      </label>
+    </div>
   );
 }
