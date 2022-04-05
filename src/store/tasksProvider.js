@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TasksContext } from "./tasks-context";
+import setLocalStorage from "../scripts/set-localStorage";
+import getLocalStorage from "../scripts/get-localStorage";
 
 export default function TasksProvider({ children }) {
   const [tasks, setTasks] = useState([]);
@@ -8,6 +10,16 @@ export default function TasksProvider({ children }) {
     task.id = tasks.length;
     setTasks((prevState) => [task, ...prevState]);
   }
+
+  const storageKey = "tasksList";
+
+  useEffect(() => {
+    getLocalStorage(setTasks, storageKey);
+  }, []);
+
+  useEffect(() => {
+    setLocalStorage(tasks, storageKey);
+  }, [tasks]);
 
   function toggleIsDone(id) {
     const copyState = [...tasks];
