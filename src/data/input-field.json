@@ -1,0 +1,14 @@
+{
+  "name": {
+    "label": "Product Name",
+    "placeholder": "Chair",
+    "error": "Name field must be completed",
+    "type": "text"
+  },
+  "price": {
+    "label": "Product Price",
+    "placeholder": "300",
+    "error": "Price must be greater than 0",
+    "type": "number"
+  }
+}
