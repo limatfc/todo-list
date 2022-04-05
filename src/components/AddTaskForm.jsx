@@ -3,10 +3,12 @@ import inputFieldData from "../data/input-field.json";
 import { useState } from "react";
 import validateName from "../scripts/validate-name";
 import validatePrice from "../scripts/validate-price";
+import useTasksProvider from "../store/use-tasks-provider";
 
 export default function AddTaskForm({ toggleModal }) {
   const [inputedName, setInputedName] = useState("");
   const [inputedPrice, setInputedPrice] = useState("");
+  const tasksContext = useTasksProvider();
 
   function submitHandler(event) {
     event.preventDefault();
@@ -14,13 +16,15 @@ export default function AddTaskForm({ toggleModal }) {
     if (inputedName === "" || inputedPrice < 0 || inputedPrice === "")
       return null;
 
-    formReset();
-    toggleModal();
-  }
+    tasksContext.addTask({
+      name: inputedName,
+      price: inputedPrice,
+      isDone: false,
+    });
 
-  function formReset() {
     setInputedName("");
     setInputedPrice("");
+    toggleModal();
   }
 
   return (
@@ -36,9 +40,10 @@ export default function AddTaskForm({ toggleModal }) {
         state={[inputedPrice, setInputedPrice]}
         validationFunction={validatePrice}
       />
-
-      <button>Add New Item</button>
-      <button onClick={toggleModal}>Close</button>
+      <button type="submit">Add New Item</button>
+      <button onClick={toggleModal} type="button">
+        Close
+      </button>
     </form>
   );
 }
