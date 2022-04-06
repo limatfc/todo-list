@@ -23,7 +23,7 @@ export default function Home({ toggleModal }) {
         image after the item is added by touching the image icon.
       </p>
       <button onClick={toggleModal} className="label">
-        Add New Item
+        Add Item
       </button>
     </div>
   );

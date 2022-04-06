@@ -39,7 +39,7 @@ export default function Shopping({ toggleModal }) {
       <h1>Your Shopping List</h1>
       <ShoppingHeader />
       <div>{notDoneTasksRender}</div>
-      <button onClick={toggleModal}>Add New Item</button>
+      <button onClick={toggleModal}>Add Item</button>
       <button onClick={toggleDoneItems}>
         <img src={iconSource} alt="an open eye" />
         {buttonLabel} Completed Items
