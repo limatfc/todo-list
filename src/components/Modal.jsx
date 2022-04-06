@@ -12,7 +12,6 @@ export default function Modal({ modalState }) {
         <AddTaskForm toggleModal={toggleModal} />,
         document.getElementById("modal-root")
       )}
-      ;
     </div>
   );
 }

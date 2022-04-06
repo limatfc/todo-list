@@ -16,7 +16,7 @@ export default function TaskItem({ task }) {
           checked={task.isDone}
           onChange={onChangeHandler}
         />
-        {task.name}, {task.price}
+        {task.name}, {task.price}:-
       </label>
     </div>
   );

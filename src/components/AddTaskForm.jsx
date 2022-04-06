@@ -28,22 +28,25 @@ export default function AddTaskForm({ toggleModal }) {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <h2>Add a new item</h2>
-      <InputField
-        information={inputFieldData.name}
-        state={[inputedName, setInputedName]}
-        validationFunction={validateName}
-      />
-      <InputField
-        information={inputFieldData.price}
-        state={[inputedPrice, setInputedPrice]}
-        validationFunction={validatePrice}
-      />
-      <button type="submit">Add New Item</button>
-      <button onClick={toggleModal} type="button">
-        Close
-      </button>
-    </form>
+    <div>
+      <div className="backdrop"></div>
+      <form className="overlayer" onSubmit={submitHandler}>
+        <h2>Add a new item</h2>
+        <InputField
+          information={inputFieldData.name}
+          state={[inputedName, setInputedName]}
+          validationFunction={validateName}
+        />
+        <InputField
+          information={inputFieldData.price}
+          state={[inputedPrice, setInputedPrice]}
+          validationFunction={validatePrice}
+        />
+        <button type="submit">Add Item</button>
+        <button onClick={toggleModal} type="button">
+          Close
+        </button>
+      </form>
+    </div>
   );
 }

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { TasksContext } from "./tasks-context";
 import setLocalStorage from "../scripts/set-localStorage";
 import getLocalStorage from "../scripts/get-localStorage";
+import sorterByName from "../scripts/sorter-by-name";
+import sorterByPrice from "../scripts/sorter-by-price";
+import togglerIsDone from "../scripts/toggler-isDone";
 
 export default function TasksProvider({ children }) {
   const [tasks, setTasks] = useState([]);
@@ -22,20 +25,24 @@ export default function TasksProvider({ children }) {
   }, [tasks]);
 
   function toggleIsDone(id) {
-    const copyState = [...tasks];
-    const findItem = copyState.find((item) => item.id === Number(id));
-    findItem.isDone = !findItem.isDone;
-    setTasks(copyState);
+    const result = togglerIsDone(tasks, id);
+    setTasks(result);
   }
 
-  const tasksContext = {
-    tasks,
-    addTask,
-    toggleIsDone,
-  };
+  function sortByName() {
+    const result = sorterByName(tasks);
+    setTasks(result);
+  }
+
+  function sortByPrice() {
+    const result = sorterByPrice(tasks);
+    setTasks(result);
+  }
 
   return (
-    <TasksContext.Provider value={tasksContext}>
+    <TasksContext.Provider
+      value={{ tasks, addTask, toggleIsDone, sortByName, sortByPrice }}
+    >
       {children}
     </TasksContext.Provider>
   );
