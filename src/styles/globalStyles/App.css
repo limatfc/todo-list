@@ -1,4 +1,4 @@
-@import url("./styles/buttons.css");
+@import url("./_buttons.css");
 
 body,
 html {
@@ -8,14 +8,14 @@ html {
 @font-face {
   font-family: "Noto Sans";
   src: local("Noto Sans"),
-    url(./assets/fonts/NotoSans-Bold.ttf) format("truetype");
+    url(../../assets/fonts/NotoSans-Bold.ttf) format("truetype");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Noto Sans";
   src: local("Noto Sans"),
-    url(./assets/fonts/NotoSans-Regular.ttf) format("truetype");
+    url(../../assets/fonts/NotoSans-Regular.ttf) format("truetype");
   font-weight: 400;
 }
 
