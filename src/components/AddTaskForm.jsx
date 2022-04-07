@@ -1,9 +1,10 @@
+import { useState } from "react";
+import useTasksProvider from "../store/use-tasks-provider";
 import InputField from "./InputField";
 import inputFieldData from "../data/input-field.json";
-import { useState } from "react";
 import validateName from "../scripts/validate-name";
 import validatePrice from "../scripts/validate-price";
-import useTasksProvider from "../store/use-tasks-provider";
+import "../styles/components/AddTaskForm.css";
 
 export default function AddTaskForm({ toggleModal }) {
   const [inputedName, setInputedName] = useState("");
@@ -29,7 +30,7 @@ export default function AddTaskForm({ toggleModal }) {
 
   return (
     <div>
-      <div className="backdrop"></div>
+      <div onClick={toggleModal} className="backdrop"></div>
       <form className="overlayer" onSubmit={submitHandler}>
         <h2>Add a new item</h2>
         <InputField
@@ -42,8 +43,10 @@ export default function AddTaskForm({ toggleModal }) {
           state={[inputedPrice, setInputedPrice]}
           validationFunction={validatePrice}
         />
-        <button type="submit">Add Item</button>
-        <button onClick={toggleModal} type="button">
+        <button className="label primary" type="submit">
+          Add Item
+        </button>
+        <button className="label secundary" onClick={toggleModal} type="button">
           Close
         </button>
       </form>

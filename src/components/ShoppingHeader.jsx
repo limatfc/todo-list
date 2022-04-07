@@ -1,4 +1,5 @@
 import useTasksProvider from "../store/use-tasks-provider";
+import "../styles/components/ShoppingHeader.css";
 
 export default function ShoppingHeader() {
   const tasksProvider = useTasksProvider();
@@ -6,10 +7,14 @@ export default function ShoppingHeader() {
   const onSortByName = tasksProvider.sortByName;
   const onSortByPrice = tasksProvider.sortByPrice;
   return (
-    <section>
-      <span>Sort by:</span>
-      <button onClick={onSortByName}>Name</button>
-      <button onClick={onSortByPrice}>Price</button>
+    <section className="header-wrapper">
+      <span className="text">Sort by:</span>
+      <button className="secundary label" onClick={onSortByName}>
+        Name
+      </button>
+      <button className="secundary label" onClick={onSortByPrice}>
+        Price
+      </button>
     </section>
   );
 }

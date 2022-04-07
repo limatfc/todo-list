@@ -1,0 +1,9 @@
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+.error-message {
+  text-align: center;
+}

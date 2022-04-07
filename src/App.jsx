@@ -1,6 +1,6 @@
 import Home from "./screens/Home";
 import Modal from "./components/Modal";
-import "./App.css";
+import "./styles/globalStyles/App.css";
 import { useState } from "react";
 import useTasksProvider from "./store/use-tasks-provider";
 import Shopping from "./screens/Shopping";

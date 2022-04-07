@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/components/InputField.css";
 
 export default function InputField({ information, state, validationFunction }) {
   const { label, placeholder, error, type } = information;
@@ -17,7 +18,7 @@ export default function InputField({ information, state, validationFunction }) {
   }
 
   return (
-    <label>
+    <label className="input-wrapper label">
       {label}
       <input
         type={type}
