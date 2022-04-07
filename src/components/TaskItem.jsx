@@ -4,11 +4,11 @@ import "../styles/components/TaskItem.css";
 export default function TaskItem({ task }) {
   const tasksContext = useTasksProvider();
 
+  const classname = task.isDone ? "done" : "";
+
   function onChangeHandler(event) {
     tasksContext.toggleIsDone(event.target.value);
   }
-
-  const classname = task.isDone ? "done" : "";
 
   return (
     <label className={`item-wrapper ${classname} text`}>

@@ -11,7 +11,7 @@ export default function AddTaskForm({ toggleModal }) {
   const [inputedPrice, setInputedPrice] = useState("");
   const tasksContext = useTasksProvider();
 
-  function submitHandler(event) {
+  function onSubmitHandler(event) {
     event.preventDefault();
 
     if (inputedName === "" || inputedPrice < 0 || inputedPrice === "")
@@ -31,7 +31,7 @@ export default function AddTaskForm({ toggleModal }) {
   return (
     <div>
       <div onClick={toggleModal} className="backdrop"></div>
-      <form className="overlayer" onSubmit={submitHandler}>
+      <form className="overlayer" onSubmit={onSubmitHandler}>
         <h2>Add a new item</h2>
         <InputField
           information={inputFieldData.name}
