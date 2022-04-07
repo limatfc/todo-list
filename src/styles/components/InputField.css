@@ -1,0 +1,43 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
+.input-wrapper input {
+  width: 260px;
+  font-size: 14px;
+  height: 35px;
+  padding-left: 8px;
+  background-color: #f5f5f5;
+  border: none;
+}
+
+.input-wrapper small::after {
+  content: ".";
+  visibility: hidden;
+}
+
+.input-wrapper input::placeholder {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.input-wrapper small {
+  color: #cd2f54;
+}
+
+@media (min-width: 750px) {
+  .input-wrapper {
+    margin-bottom: 16px;
+  }
+  .input-wrapper input {
+    font-size: 18px;
+    width: 500px;
+  }
+
+  .input-wrapper input::placeholder {
+    opacity: 0.5;
+    font-size: 18px;
+  }
+}

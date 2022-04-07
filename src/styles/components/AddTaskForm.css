@@ -1,0 +1,29 @@
+.backdrop {
+  z-index: 10;
+  background-color: rgb(105, 105, 105, 0.85);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlayer {
+  z-index: 20;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 750px) {
+  .overlayer {
+    width: 700px;
+    height: 400px;
+  }
+}

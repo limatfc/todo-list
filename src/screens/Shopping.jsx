@@ -32,8 +32,10 @@ export default function Shopping({ toggleModal }) {
       <h1>Your Shopping List</h1>
       <ShoppingHeader />
       <div>{<TaskList tasks={notDoneTasksList} />}</div>
-      <button onClick={toggleModal}>Add Item</button>
-      <button onClick={toggleDoneItems}>
+      <button onClick={toggleModal} className="primary label">
+        Add Item
+      </button>
+      <button onClick={toggleDoneItems} className="secundary label align">
         <img src={iconSource} alt="an open eye" />
         {buttonLabel} Completed Items
       </button>

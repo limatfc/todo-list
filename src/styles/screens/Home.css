@@ -1,0 +1,24 @@
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-wrapper p {
+  text-align: center;
+}
+
+.logo {
+  align-self: start;
+}
+
+.welcome-image {
+  width: 280px;
+  height: auto;
+}
+
+@media (min-width: 750px) {
+  .welcome-image {
+    width: 500px;
+  }
+}
