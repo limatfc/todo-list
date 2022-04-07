@@ -12,7 +12,7 @@ export default function InputField({ information, state, validationFunction }) {
 
   function onBlurHandler() {
     const validatedInputedValue = validationFunction(getter, error);
-    setter(validatedInputedValue.trimmedValue);
+    setter(validatedInputedValue.validValue);
     setErrorMessage(validatedInputedValue.errorMessage);
   }
 
