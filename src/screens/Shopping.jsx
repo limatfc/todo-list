@@ -12,15 +12,14 @@ export default function Shopping({ toggleModal }) {
   const tasksContext = useTasksProvider();
 
   const notDoneTasksList = tasksContext.tasks.filter((item) => !item.isDone);
-
   const doneTasksList = tasksContext.tasks.filter((item) => item.isDone);
+
+  const iconSource = showDoneItems ? shutEyeIcon : openedEyeIcon;
+  const buttonLabel = showDoneItems ? "Hide" : "View";
 
   function toggleDoneItems() {
     setShowDoneItems(!showDoneItems);
   }
-
-  const iconSource = showDoneItems ? shutEyeIcon : openedEyeIcon;
-  const buttonLabel = showDoneItems ? "Hide" : "View";
 
   return (
     <div className="shopping-wrapper">

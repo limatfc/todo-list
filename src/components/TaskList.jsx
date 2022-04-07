@@ -8,7 +8,7 @@ export default function TaskList({ tasks }) {
   return (
     <div className="list-wrapper">
       {tasks.map((item) => (
-        <TaskItem task={item} />
+        <TaskItem key={item.id} task={item} />
       ))}
     </div>
   );

@@ -9,11 +9,11 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
   const tasksContext = useTasksProvider();
 
+  const tasksList = tasksContext.tasks;
+
   function toggleModal() {
     setShowModal(!showModal);
   }
-
-  const tasksList = tasksContext.tasks;
 
   return (
     <div className="App">

@@ -2,10 +2,11 @@ import useTasksProvider from "../store/use-tasks-provider";
 import "../styles/components/ShoppingHeader.css";
 
 export default function ShoppingHeader() {
-  const tasksProvider = useTasksProvider();
+  const tasksContext = useTasksProvider();
 
-  const onSortByName = tasksProvider.sortByName;
-  const onSortByPrice = tasksProvider.sortByPrice;
+  const onSortByName = tasksContext.sortByName;
+  const onSortByPrice = tasksContext.sortByPrice;
+
   return (
     <section className="header-wrapper">
       <span className="text">Sort by:</span>

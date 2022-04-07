@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import TasksProvider from "./store/tasksProvider";
+import TasksProvider from "./store/tasks-provider";
 import App from "./App";
 
 const container = document.getElementById("root");

@@ -9,12 +9,12 @@ import togglerIsDone from "../scripts/toggler-isDone";
 export default function TasksProvider({ children }) {
   const [tasks, setTasks] = useState([]);
 
+  const storageKey = "tasksList";
+
   function addTask(task) {
     task.id = tasks.length;
     setTasks((prevState) => [task, ...prevState]);
   }
-
-  const storageKey = "tasksList";
 
   useEffect(() => {
     getLocalStorage(setTasks, storageKey);
