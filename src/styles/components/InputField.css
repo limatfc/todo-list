@@ -32,12 +32,12 @@
     margin-bottom: 16px;
   }
   .input-wrapper input {
-    font-size: 18px;
+    font-size: 19px;
     width: 500px;
   }
 
   .input-wrapper input::placeholder {
     opacity: 0.5;
-    font-size: 18px;
+    font-size: 19px;
   }
 }
