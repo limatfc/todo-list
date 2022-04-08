@@ -43,7 +43,7 @@ export default function AddTaskForm({ toggleModal }) {
           state={[inputedPrice, setInputedPrice]}
           validationFunction={validatePrice}
         />
-        <button className="label primary" type="submit">
+        <button id="modal" className="label primary" type="submit">
           Add Item
         </button>
         <button className="label secundary" onClick={toggleModal} type="button">
