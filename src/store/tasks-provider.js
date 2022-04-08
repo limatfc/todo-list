@@ -17,7 +17,8 @@ export default function TasksProvider({ children }) {
   }
 
   useEffect(() => {
-    getLocalStorage(setTasks, storageKey);
+    const parse = getLocalStorage(storageKey);
+    setTasks(parse);
   }, []);
 
   useEffect(() => {

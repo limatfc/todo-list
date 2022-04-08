@@ -15,3 +15,9 @@ test("returns a list of objets containing names in alphabetical order", () => {
     { name: "Zebra", price: 400 },
   ]);
 });
+
+test("returns null if array doesn't have a 'name' key", () => {
+  const tasks = [{ price: 400 }, { price: 300 }, { price: 500 }];
+  const result = sorterByName(tasks);
+  expect(result).toBeNull();
+});

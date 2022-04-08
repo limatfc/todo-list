@@ -44,35 +44,10 @@ test("Click on the 'Hide completed items' button leads to rendering of the 'View
   expect(viewCompleteItemsButton).toBeInTheDocument();
 });
 
-// test("renders 'No items found' on the screen if TaskItem receives an empty array", () => {
-//   jest.mock("react", () => {
-//     const ActualReact = jest.requireActual("react");
-
-//     return {
-//       ...ActualReact,
-//       useContext: () => ({
-//         tasks: [],
-//       }),
-//     };
-//   });
-//   render(<Shopping toggleModal={() => {}} />);
-//   const smallElement = screen.queryByText(/No items found/i);
-//   expect(smallElement).toBeInTheDocument();
-// });
-
-// test("renders TaskItem on the screen if TaskItem receives array with content", () => {
-//   //   jest.mock("react", () => {
-//   //     const ActualReact = jest.requireActual("react");
-
-//   //     return {
-//   //       ...ActualReact,
-//   //       useContext: () => ({
-//   //         tasks: [{ name: "Chair", price: 300, isDone: false, id: 1 }],
-//   //       }),
-//   //     };
-//   //   });
-//   render(<Shopping toggleModal={() => {}} />);
-
-//   const smallElement = screen.queryByText(/No items found/i);
-//   expect(smallElement).not.toBeInTheDocument();
-// });
+test("Click on the 'View completed items' button leads to a second TaskItem component render", () => {
+  render(<Shopping toggleModal={() => {}} />);
+  const viewCompleteItemsButton = screen.queryByText(/View completed items/i);
+  fireEvent.click(viewCompleteItemsButton);
+  const textElement = screen.queryAllByText(/No items found/i);
+  expect(textElement.length).toBe(2);
+});

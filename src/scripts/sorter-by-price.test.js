@@ -15,3 +15,9 @@ test("returns a list of objets containing prices in crescent order", () => {
     { name: "Apple statue", price: 500 },
   ]);
 });
+
+test("returns null if array doesn't have a 'name' key", () => {
+  const tasks = [{ name: "Zebra" }, { name: "Mug" }, { name: "Apple statue" }];
+  const result = sorterByPrice(tasks);
+  expect(result).toBeNull();
+});
